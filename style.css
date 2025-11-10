@@ -104,3 +104,13 @@ h2::before{
 .projekti h3{margin:0 0 4px;font-size:16px}
 .projekti .desc{margin:0 0 6px;color:#334155}
 .projekti .tech{margin:0;font-size:14px;color:#475569}
+
+.projekti{ position:relative; }
+.projekti .korttilinkki{
+  position:absolute; inset:0;
+  z-index:1; 
+  border-radius:14px;
+}
+.projekti h3, .projekti p{ position:relative; z-index:2; }
+.projekti a.textlinkki{ color:inherit; text-decoration:none; }
+.projekti a.textlinkki:hover{ text-decoration:underline; }
