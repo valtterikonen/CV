@@ -4,7 +4,6 @@
   --max:980px; --shadow:0 10px 30px rgba(2,6,23,.06);
 }
 
-/* Perusrunko */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
   font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji"}
@@ -12,20 +11,25 @@ a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 .wrap{max-width:var(--max);margin:auto;padding:32px 20px 60px}
 
-/* Grid-sisältö */
 .grid{display:grid;grid-template-columns:2fr 1fr;gap:20px}
 @media (max-width:860px){.grid{grid-template-columns:1fr}}
 .span-all{grid-column:1/-1}
 
-/* Korttimainen osio */
 section{
-  background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
-  padding:var(--pad); box-shadow:var(--shadow); position:relative; overflow:hidden;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:var(--pad);
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
 }
 section::before{
-  content:""; position:absolute; inset:0; pointer-events:none;
+  content:"";
+  position:absolute; inset:0; pointer-events:none;
   background:linear-gradient(180deg,rgba(37,99,235,.06),transparent 24%);
 }
+
 h2{
   margin:0 0 14px; font-size:14px; letter-spacing:.08em; text-transform:uppercase;
   color:#111827; display:flex; align-items:center; gap:10px
@@ -34,177 +38,69 @@ h2::before{
   content:""; width:8px; height:8px; border-radius:2px; background:var(--accent);
   display:inline-block; box-shadow:0 0 0 3px rgba(37,99,235,.15)
 }
+
 .list{margin:0;padding-left:18px}
 .item{margin-bottom:14px}
 .item h3{margin:0 0 4px;font-size:16px}
+.vuodet{margin-left:auto;font-weight:500;font-size:14px;color:#475569;white-space:nowrap}
 .meta{font-size:13px;color:var(--muted)}
-.twocol{columns:2;column-gap:14px}
-.footer{margin-top:18px;font-size:12px;color:var(--muted);text-align:center}
-.card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px}
 
-/* Tyhjä placeholder-boksi */
-.empty{min-height:120px;border:1px dashed var(--border);border-radius:14px;background:#fafbff}
-
-/* Tulostus */
-@media print{
-  html,body{background:#fff}
-  :root{--card:#fff;--shadow:none;--border:#ddd}
-  .wrap{padding:0}
-  body{font-size:12px}
-  a{text-decoration:none;color:inherit}
-  section{break-inside:avoid}
-}
-
-/* ---------- LINKEDIN-TYYLINEN HEADER-KORTTI (PIENI AVATAR) ---------- */
-
-/* Kokonaiskortti */
-.li-card-lite{
+.profiilikortti{
   position:relative; overflow:hidden; border-radius:16px;
   background:#fff; border:1px solid var(--border); box-shadow:var(--shadow);
   padding:16px; margin-bottom:18px;
 }
-/* Yläbanneri */
-.li-card-lite::before{
+.profiilikortti::before{
   content:""; position:absolute; left:0; right:0; top:0; height:84px;
   background:
     radial-gradient(120px 80px at 20% 0%, rgba(37,99,235,.25), transparent 60%),
     linear-gradient(135deg, #e8eefc, #f6f7fb 60%);
 }
 
-/* Title-rivi + pieni kuva */
-.title{
-  position:relative; z-index:1;
-  display:grid; grid-template-columns:72px 1fr; gap:12px; align-items:end;
-  margin-top:36px;
-}
-.title .avatar{
-  width:72px; height:72px; border-radius:50%; object-fit:cover;
-  background:#e5e7eb; border:3px solid #fff; box-shadow:0 2px 8px rgba(0,0,0,.07);
-}
-.title h1{font-size:24px; line-height:1.2; margin:0}
-.role{color:#334155; margin-top:2px}
-
-/* Paikkakunta ja koulu */
-.li-loc{color:var(--muted); font-size:14px; margin-top:2px}
-.li-org{display:flex; align-items:center; gap:8px; margin-top:6px}
-.li-org img{width:18px; height:18px; object-fit:contain}
-
-/* Hero-rivi: iso kuva + nimi + isot kontaktit */
-.li-hero{
+.profiilirivi{
   position:relative; z-index:1;
   display:flex; align-items:center; gap:18px; margin-top:28px;
 }
-.avatar-lg{
+.profiilikuva{
   width:120px; height:120px; border-radius:50%; object-fit:cover;
   background:#e5e7eb; border:4px solid #fff; box-shadow:0 4px 16px rgba(0,0,0,.08);
 }
-.name{font-size:30px; line-height:1.15; margin:0 0 6px}
-.id-block{display:flex; flex-direction:column; gap:6px}
-
-/* isot kontaktisirut – säilytetään GitHub/LinkedIn logot */
-.li-contacts.big{display:flex; flex-wrap:wrap; gap:10px}
-.li-contacts.big .chip-link{
+.nimi{font-size:30px; line-height:1.15; margin:0 0 6px}
+.tunniste{display:flex; flex-direction:column; gap:6px}
+.yhteystiedot.big{display:flex; flex-wrap:wrap; gap:10px}
+.sirulinkki{
   font-size:15px; padding:8px 12px; border-radius:999px;
   border:1px solid var(--border); background:#fff; display:inline-flex; align-items:center; gap:8px;
 }
-.li-contacts.big .chip-link:hover{background:#f9fafb}
-.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.proj{background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px}
-.proj h3{margin:0 0 6px;font-size:16px}
-.proj .desc{margin:2 0 6px;color:#334155}
-.proj .tech{margin:0;font-size:14px;color:#475569}
-@media (max-width:860px){.proj-grid{grid-template-columns:1fr}}
+.sirulinkki:hover{background:#f9fafb}
 
-.job h3{
-  margin:0 0 6px;
-  font-size:20x;
-  display:flex; 
-  align-items:baseline; 
-  gap:12px;
-  flex-wrap:wrap;     
-}
-.job h3 .when{
-  margin-left:auto;       
-  font-weight:500;
-  font-size:14px;
-  color:#475569;        
-  white-space:nowrap;     
-}
+.pino{margin:0;padding:0}
+.pino > * + *{border-top:1px solid var(--border);margin-top:12px;padding-top:12px}
 
-@media (max-width:520px){
-  .job h3{
-    gap:6px;
-  }
-  .job h3 .when{
-    margin:4;
-    white-space:normal;   
-    font-size:13px;
-  }
-}
-
-/* Kevyt lista ilman kortteja */
-.stack{margin:0;padding:0}
-.stack > * + *{
-  border-top:1px solid var(--border);
-  margin-top:12px; padding-top:12px;
-}
-
-/* Työkokemus: otsikko + ajankohta samalla rivillä */
-.job h3{
+.tyo h3{
   margin:0 0 6px;
   font-size:16px;
   display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;
 }
-.job h3 .when{
+.tyo h3 .when{
   margin-left:auto; font-weight:500; font-size:14px; color:#475569; white-space:nowrap;
 }
 @media (max-width:520px){
-  .job h3 .when{margin-left:0; white-space:normal; font-size:13px}
+  .tyo h3 .when{margin-left:0; white-space:normal; font-size:13px}
 }
 
-/* Projektit (kevyt lista) */
-.proj h3{margin:0 0 4px;font-size:16px}
-.proj .desc{margin:0 4px 6px 0;color:#334155}
-.proj .tech{margin:0;font-size:14px;color:#475569}
+.projektit-top{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:12px}
+.korostettu{grid-column:1/-1}
+.korostettu h3{font-size:18px}
+@media (max-width:860px){.projektit-top{grid-template-columns:1fr}}
 
-/* Top 3: kevyt korostus ilman laatikkoa */
-.proj-top{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:12px}
-.featured--large{grid-column:1/-1}
-.featured--large h3{font-size:18px}
-@media (max-width:860px){.proj-top{grid-template-columns:1fr}}
-
-section.plain{
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  padding: 0;        
+.projekti{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px;
+  box-shadow:var(--shadow);
 }
-section.plain::before{ display:none; }
-
-section.plain h2{
-  margin-bottom: 10px;
-}
-
-.lead{
-  margin: 0;
-  font-size: 17px;
-  line-height: 1.6;
-  color: #334155;
-}
-
-.edu .item{ margin-bottom: 10px; }
-.edu .item h3{
-  margin:0 0 2px;
-  font-size:16px;
-  display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;
-}
-.edu .item h3 .years{
-  margin-left:auto; font-weight:500; font-size:14px; color:#475569; white-space:nowrap;
-}
-.edu .item > div{ color:#334155; }
-
-.job h3{ font-size:16px; }             
-.proj .desc{ margin: 0 0 6px; }            
-@media (max-width:520px){
-  .job h3 .when{ margin-left:0; }          
-}
+.projekti h3{margin:0 0 4px;font-size:16px}
+.projekti .desc{margin:0 0 6px;color:#334155}
+.projekti .tech{margin:0;font-size:14px;color:#475569}
